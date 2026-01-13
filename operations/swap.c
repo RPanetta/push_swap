@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:03:47 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/13 12:36:24 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:39:59 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_stack *a)
 {
 	t_node	*first;
 	t_node	*second;
-	
+
 	if (a->size < 2)
 		return ;
 	first = a->top;

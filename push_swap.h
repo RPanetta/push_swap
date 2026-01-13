@@ -62,5 +62,4 @@ void	rrr(t_stack *a, t_stack *b);
 int		ft_atoi(char *nptr);
 void	error_exit(void);
 
-
 #endif

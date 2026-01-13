@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/12 13:40:52 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:39:51 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 t_node	*new_node(int value)
 {
 	t_node	*node;
-	
+
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
@@ -50,4 +50,3 @@ int	pop_stack(t_stack *stack)
 	stack->size--;
 	return (val);
 }
-

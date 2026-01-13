@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:03:56 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/13 12:54:41 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/13 15:40:20 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	reverse_rotate_stack(t_stack *s)
 {
 	t_node	*prev;
 	t_node	*curr;
-	
+
 	if (!s || s->size < 2)
 		return ;
 	prev = NULL;
