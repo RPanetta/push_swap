@@ -1,20 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:03:06 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/12 12:45:52 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/14 13:01:03 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//Checks whether the integer array contains duplicate values.
+//Compares each element. Returns 1 if duplicates are found, otherwise 0.
+int	has_duplicates(int *array, int len)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < len)
+	{
+		j = i + 1;
+		while (j < len)
+		{
+			if (array[i] == array[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+//Converts the arguments from strings to integers.
+//Allocates a new int array and fills it using ft_atoi
+int	*convert_to_int(int argc, char **argv)
+{
+	int	i;
+	int	j;
+	int	*array;
+
+	i = 1;
+	j = 0;
+	array = (int *)malloc(sizeof(int) * (argc - 1));
+	if (!array)
+		return (NULL);
+	while (i < argc)
+	{
+		array[j] = ft_atoi(argv[i]);
+		i++;
+		j++;
+	}
+	return (array);
+}
+
 //Checks whether a string represents a valid int number.
 //Returns: 1 if the string is a valid integer, otherwise 0
-int	ft_is_int(char *str)
+int	is_int(char *str)
 {
 	int		i;
 	int		sign;
@@ -45,14 +89,14 @@ int	ft_is_int(char *str)
 
 //Some arguments not being integers, some arguments
 //exceeding the integer limits, uses ft_is_int to validate each element.
-int	ft_has_int_elements(int argc, char **argv)
+int	has_int_elements(int argc, char **argv)
 {
 	int	i;
 
 	i = 1;
 	while (i < argc)
 	{
-		if (ft_is_int(argv[i]))
+		if (is_int(argv[i]))
 			i++;
 		else
 			return (0);

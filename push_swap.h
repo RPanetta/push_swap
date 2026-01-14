@@ -29,13 +29,16 @@ typedef struct s_stack
 }				t_stack;
 
 //PARSING
-int		ft_is_int(char *str);
-int		ft_has_int_elements(int argc, char **argv);
-int		*ft_convert_int(int argc, char **argv);
-int		ft_has_duplicates(int *array, int len);
+int		is_int(char *str);
+int		has_int_elements(int argc, char **argv);
+int		*convert_to_int(int argc, char **argv);
+int		has_duplicates(int *array, int len);
 int		*parse_args(int argc, char **argv);
 
 //STACK UTILS
+int		is_sorted(t_stack *a);
+int		find_min(t_stack *a);
+int		find_max(t_stack *a);
 t_node	*new_node(int value);
 void	push_stack(t_stack *stack, int value);
 int		pop_stack(t_stack *stack);
@@ -61,5 +64,9 @@ void	rrr(t_stack *a, t_stack *b);
 //UTILS
 int		ft_atoi(char *nptr);
 void	error_exit(void);
+
+//SORTING
+void	sort_two(t_stack *a);
+void	sort_three(t_stack *a);
 
 #endif

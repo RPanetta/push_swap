@@ -13,10 +13,10 @@
 NAME = push_swap
 
 SOURCES = src/main.c\
-src/check_args.c\
-src/convert_args.c\
-src/duplicates.c\
+src/parse.c\
+src/sort_small.c\
 src/stack_utils.c\
+src/stack.c\
 src/utils.c\
 operations/push.c\
 operations/reverse_rotate.c\

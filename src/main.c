@@ -27,12 +27,12 @@ int	*parse_args(int argc, char **argv)
 {
 	int	*ints_a;
 
-	if (!ft_has_int_elements(argc, argv))
+	if (!has_int_elements(argc, argv))
 		error_exit();
-	ints_a = ft_convert_int(argc, argv);
+	ints_a = convert_to_int(argc, argv);
 	if (!ints_a)
 		error_exit();
-	if (ft_has_duplicates(ints_a, argc - 1))
+	if (has_duplicates(ints_a, argc - 1))
 	{
 		free(ints_a);
 		error_exit();
