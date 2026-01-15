@@ -66,20 +66,20 @@ int	*parse_args(int argc, char **argv)
 int	main(int argc, char **argv)
 {
 	int		*ints_a;
-	int		*compresssed_indices;
+	int		*compressed_indices;
 	t_stack	*a;
 	t_stack	*b;
 
 	if (argc == 1)
 		return (0);
 	ints_a = parse_args(argc, argv);
-	compresssed_indices = compress_indices(ints_a, argc - 1);
-	if (!compresssed_indices)
+	compressed_indices = compress_indices(ints_a, argc - 1);
+	if (!compressed_indices)
 	{
 		free(ints_a);
 		error_exit();
 	}
-	initialize_stacks(&a, &b, compresssed_indices, argc - 1);
+	initialize_stacks(&a, &b, compressed_indices, argc - 1);
 	push_swap(a, b);
 	//push_swap(a, b, argc - 1);
 	free(ints_a);

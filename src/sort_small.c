@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:01:49 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 17:01:19 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 23:46:59 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,19 @@ void	sort_four(t_stack *a, t_stack *b)
 {
 	int	min;
 
-	if (!a || !b || a->size != 4)
+	if (!a || a->size != 4)
 		return ;
 	min = find_min(a);
 	while (a->top->value != min)
 	{
-		if (index_of(a, min) <= a->size / 2)
+		if (index_of(min, a) <= a->size / 2)
 			ra(a);
 		else
 			rra(a);
 	}
-	pb(a, b);
+	pb(a, &b);
 	sort_three(a);
-	pa(a, b);
+	pa(a, &b);
 }
 
 void	sort_five(t_stack *a, t_stack *b)
@@ -82,15 +82,15 @@ void	sort_five(t_stack *a, t_stack *b)
 		min = find_min(a);
 		while (a->top->value != min)
 		{
-			if (index_of(a, min) <= a->size / 2)
+			if (index_of(min, a) <= a->size / 2)
 				ra(a);
 			else
 				rra(a);
 		}
-		pb(a, b);
+		pb(a, &b);
 		i++;
 	}
 	sort_three(a);
-	pa(a, b);
-	pa(a, b);
+	pa(a, &b);
+	pa(a, &b);
 }

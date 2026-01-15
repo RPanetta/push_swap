@@ -51,11 +51,12 @@ t_node	*new_node(int value);
 //STACK UTILS
 int		is_sorted(t_stack *a);
 int		find_min(t_stack *a);
-int		find_max(t_stack *a);
-int		index_of(t_stack *a, int value);
-void	push_stack(t_stack *stack, int value);
+// int		find_max(t_stack *a);
+int		index_of(int value, t_stack *a);
+void	push_to_stack(int value, t_stack **stack);
 int		pop_stack(t_stack *stack);
 t_stack	*init_stack(int *arr, int size);
+t_stack	*init_stack_one_node(int val);
 void	free_stack(t_stack *s);
 
 //OPERATIONS
@@ -63,8 +64,8 @@ void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
 
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack **b);
+void	pb(t_stack *a, t_stack **b);
 
 void	rotate_stack(t_stack *s);
 void	ra(t_stack *a);

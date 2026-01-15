@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 17:46:25 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 23:31:40 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,12 @@ int	find_min(t_stack *a)
 {
 	t_node	*curr;
 	int		min;
-
+	
 	if (!a || !a->top)
 		return (0);
 	curr = a->top;
 	min = curr->value;
+	
 	while (curr)
 	{
 		if (curr->value < min)
@@ -47,22 +48,42 @@ int	find_min(t_stack *a)
 	return (min);
 }
 
-int	find_max(t_stack *a)
-{
-	t_node	*curr;
-	int		max;
+// int	find_max(t_stack *a)
+// {
+// 	t_node	*curr;
+// 	int		max;
 
-	if (!a || !a->top)
-		return (0);
-	curr = a->top;
-	max = curr->value;
-	while (curr)
+// 	if (!a || !a->top)
+// 		return (0);
+// 	curr = a->top;
+// 	max = curr->value;
+// 	while (curr)
+// 	{
+// 		if (curr->value > max)
+// 			max = curr->value;
+// 		curr = curr->next;
+// 	}
+// 	return (max);
+// }
+
+//creamos un stack de un solo node
+t_stack	*init_stack_one_node(int val)
+{
+	t_stack	*s;
+	t_node	*n;
+
+	s = malloc(sizeof(t_stack));
+	if (!s)
+		return (NULL);
+	n = new_node(val);
+	if (!n)
 	{
-		if (curr->value > max)
-			max = curr->value;
-		curr = curr->next;
+		free(s);
+		return (NULL);
 	}
-	return (max);
+	s->top = n;
+	s->size = 1;
+	return (s);
 }
 
 t_stack	*init_stack(int *arr, int size)
@@ -77,13 +98,12 @@ t_stack	*init_stack(int *arr, int size)
 	s->size = 0;
 	while (size--)
 	{
-		n = malloc(sizeof(t_node));
+		n = new_node(arr[size]);
 		if (!n)
 		{
 			free_stack(s);
 			return (NULL);
 		}
-		n->value = arr[size];
 		n->next = s->top;
 		s->top = n;
 		s->size++;
@@ -93,7 +113,7 @@ t_stack	*init_stack(int *arr, int size)
 
 //Devuelve la posición (índice) de un valor dentro de la pila.
 //top de la pila: 0, siguiente 1, etc.
-int	index_of(t_stack *a, int value)
+int	index_of(int value, t_stack *a)
 {
 	t_node	*curr;
 	int		i;

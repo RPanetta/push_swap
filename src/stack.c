@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:50:12 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 17:14:29 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 23:45:57 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,16 +37,23 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-void	push_stack(t_stack *stack, int value)
+void	push_to_stack(int value, t_stack **stack)
 {
 	t_node	*node;
 
-	node = new_node(value);
-	if (!node)
-		error_exit();
-	node->next = stack->top;
-	stack->top = node;
-	stack->size++;
+	if (!*stack)
+	{
+		*stack = init_stack_one_node(value);
+	}
+	else
+	{
+		node = new_node(value);
+		if (!node)
+			error_exit();
+		node->next = (*stack)->top;
+		(*stack)->top = node;
+		(*stack)->size++;
+	}
 }
 
 int	pop_stack(t_stack *stack)

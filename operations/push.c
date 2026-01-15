@@ -6,31 +6,31 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:04:03 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 16:58:44 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 23:46:31 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //Push the top of a to b
-void	pb(t_stack *a, t_stack *b)
+void	pb(t_stack *a, t_stack **b)
 {
 	int	val;
 
 	if (!a || a->size == 0)
 		return ;
 	val = pop_stack(a);
-	push_stack(b, val);
+	push_to_stack(val, b);
 	write(1, "pb\n", 3);
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack **b)
 {
 	int	val;
 
-	if (!b || b->size == 0)
+	if (!*b || (*b)->size == 0)
 		return ;
-	val = pop_stack(b);
-	push_stack(a, val);
+	val = pop_stack(*b);
+	push_to_stack(val, &a);
 	write(1, "pa\n", 3);
 }
