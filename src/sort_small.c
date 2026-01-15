@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:01:49 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 23:46:59 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/16 00:06:27 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	sort_four(t_stack *a, t_stack *b)
 	}
 	pb(a, &b);
 	sort_three(a);
-	pa(a, &b);
+	pa(&a, b);
 }
 
 void	sort_five(t_stack *a, t_stack *b)
@@ -91,6 +91,6 @@ void	sort_five(t_stack *a, t_stack *b)
 		i++;
 	}
 	sort_three(a);
-	pa(a, &b);
-	pa(a, &b);
+	pa(&a, b);
+	pa(&a, b);
 }
