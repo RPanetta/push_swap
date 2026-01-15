@@ -80,7 +80,8 @@ int	main(int argc, char **argv)
 		error_exit();
 	}
 	initialize_stacks(&a, &b, compresssed_indices, argc - 1);
-	push_swap(a, b, argc - 1);
+	push_swap(a, b);
+	//push_swap(a, b, argc - 1);
 	free(ints_a);
 	return (0);
 }

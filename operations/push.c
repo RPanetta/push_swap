@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:04:03 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/13 12:38:29 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 16:58:44 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	pb(t_stack *a, t_stack *b)
 {
 	int	val;
 
-	if (a->size == 0)
+	if (!a || a->size == 0)
 		return ;
 	val = pop_stack(a);
 	push_stack(b, val);

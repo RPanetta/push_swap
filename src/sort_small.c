@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:01:49 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 13:00:16 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:01:19 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void	sort_three(t_stack *a)
 	int	second;
 	int	third;
 
+	if (!a || a->size != 3)
+		return ;
 	first = a->top->value;
 	second = a->top->next->value;
 	third = a->top->next->next->value;
@@ -48,28 +50,47 @@ void	sort_three(t_stack *a)
 }
 //else: it's already sorted, do nothing
 
-void	push_swap_3(t_stack *a, int size)
+void	sort_four(t_stack *a, t_stack *b)
 {
-	if (size == 1)
+	int	min;
+
+	if (!a || !b || a->size != 4)
 		return ;
-	else if (size == 2)
-		sort_two(a);
-	else
-		sort_three(a);
+	min = find_min(a);
+	while (a->top->value != min)
+	{
+		if (index_of(a, min) <= a->size / 2)
+			ra(a);
+		else
+			rra(a);
+	}
+	pb(a, b);
+	sort_three(a);
+	pa(a, b);
 }
 
-// borrar esto de abajo e implementar el codigo
-void	push_swap_5(t_stack *a, int size)
+void	sort_five(t_stack *a, t_stack *b)
 {
+	int	min;
 	int	i;
 
-	a = NULL;
-	size = 5;
+	if (!a || a->size != 5)
+		return ;
 	i = 0;
-	while (i < size)
+	while (i < 2)
 	{
-		a->top->value = 1;
+		min = find_min(a);
+		while (a->top->value != min)
+		{
+			if (index_of(a, min) <= a->size / 2)
+				ra(a);
+			else
+				rra(a);
+		}
+		pb(a, b);
 		i++;
 	}
-	return ;
+	sort_three(a);
+	pa(a, b);
+	pa(a, b);
 }

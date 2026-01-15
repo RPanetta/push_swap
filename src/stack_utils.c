@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 13:09:09 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 17:46:25 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,19 +65,6 @@ int	find_max(t_stack *a)
 	return (max);
 }
 
-void	free_stack(t_stack *s)
-{
-	t_node	*tmp;
-
-	while (s && s->top)
-	{
-		tmp = s->top;
-		s->top = tmp->next;
-		free(tmp);
-	}
-	free(s);
-}
-
 t_stack	*init_stack(int *arr, int size)
 {
 	t_stack	*s;
@@ -104,23 +91,23 @@ t_stack	*init_stack(int *arr, int size)
 	return (s);
 }
 
-// //Devuelve la posición (índice) de un valor dentro de la pila.
-// //top de la pila: 0, siguiente 1, etc.
-// int	index_of(t_stack *a, int value)
-// {
-// 	t_node	*curr;
-// 	int		i;
+//Devuelve la posición (índice) de un valor dentro de la pila.
+//top de la pila: 0, siguiente 1, etc.
+int	index_of(t_stack *a, int value)
+{
+	t_node	*curr;
+	int		i;
 
-// 	if (!a)
-// 		return (-1);
-// 	curr = a->top;
-// 	i = 0;
-// 	while (curr)
-// 	{
-// 		if (curr->value == value)
-// 			return (i);
-// 		curr = curr->next;
-// 		i++;
-// 	}
-// 	return (-1);
-// }
+	if (!a)
+		return (-1);
+	curr = a->top;
+	i = 0;
+	while (curr)
+	{
+		if (curr->value == value)
+			return (i);
+		curr = curr->next;
+		i++;
+	}
+	return (-1);
+}
