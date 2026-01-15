@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/14 16:11:48 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/15 13:09:09 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,23 +65,62 @@ int	find_max(t_stack *a)
 	return (max);
 }
 
-//Devuelve la posición (índice) de un valor dentro de la pila.
-//top de la pila: 0, siguiente 1, etc.
-int	index_of(t_stack *a, int value)
+void	free_stack(t_stack *s)
 {
-	t_node	*curr;
-	int		i;
+	t_node	*tmp;
 
-	if (!a)
-		return (-1);
-	curr = a->top;
-	i = 0;
-	while (curr)
+	while (s && s->top)
 	{
-		if (curr->value == value)
-			return (i);
-		curr = curr->next;
-		i++;
+		tmp = s->top;
+		s->top = tmp->next;
+		free(tmp);
 	}
-	return (-1);
+	free(s);
 }
+
+t_stack	*init_stack(int *arr, int size)
+{
+	t_stack	*s;
+	t_node	*n;
+
+	s = malloc(sizeof(t_stack));
+	if (!s)
+		return (NULL);
+	s->top = NULL;
+	s->size = 0;
+	while (size--)
+	{
+		n = malloc(sizeof(t_node));
+		if (!n)
+		{
+			free_stack(s);
+			return (NULL);
+		}
+		n->value = arr[size];
+		n->next = s->top;
+		s->top = n;
+		s->size++;
+	}
+	return (s);
+}
+
+// //Devuelve la posición (índice) de un valor dentro de la pila.
+// //top de la pila: 0, siguiente 1, etc.
+// int	index_of(t_stack *a, int value)
+// {
+// 	t_node	*curr;
+// 	int		i;
+
+// 	if (!a)
+// 		return (-1);
+// 	curr = a->top;
+// 	i = 0;
+// 	while (curr)
+// 	{
+// 		if (curr->value == value)
+// 			return (i);
+// 		curr = curr->next;
+// 		i++;
+// 	}
+// 	return (-1);
+// }

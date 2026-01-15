@@ -14,6 +14,7 @@ NAME = push_swap
 
 SOURCES = src/main.c\
 src/parse.c\
+src/push_swap.c\
 src/sort_small.c\
 src/stack_utils.c\
 src/stack.c\

@@ -35,15 +35,27 @@ int		*convert_to_int(int argc, char **argv);
 int		has_duplicates(int *array, int len);
 int		*parse_args(int argc, char **argv);
 
+//UTILS
+int		ft_atoi(char *nptr);
+void	error_exit(void);
+void	compress(int *arr, int *copy, int *result, int size);
+int		*compress_indices(int *arr, int size);
+int		*arr_copy(int *arr, int size);
+void	sort(int *arr, int size);
+void	swap(int *a, int *b);
+void	initialize_stacks(t_stack **a, t_stack **b, int *values, int size);
+
+//NODE UTILS
+t_node	*new_node(int value);
+
 //STACK UTILS
 int		is_sorted(t_stack *a);
 int		find_min(t_stack *a);
 int		find_max(t_stack *a);
-t_node	*new_node(int value);
 void	push_stack(t_stack *stack, int value);
 int		pop_stack(t_stack *stack);
-void	rotate_stack(t_stack *s);
-void	reverse_rotate_stack(t_stack *s);
+t_stack	*init_stack(int *arr, int size);
+void	free_stack(t_stack *s);
 
 //OPERATIONS
 void	sa(t_stack *a);
@@ -53,20 +65,21 @@ void	ss(t_stack *a, t_stack *b);
 void	pa(t_stack *a, t_stack *b);
 void	pb(t_stack *a, t_stack *b);
 
+void	rotate_stack(t_stack *s);
 void	ra(t_stack *a);
 void	rb(t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 
+void	reverse_rotate_stack(t_stack *s);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
-//UTILS
-int		ft_atoi(char *nptr);
-void	error_exit(void);
-
-//SORTING
+//PUSH_SWAP
+void	push_swap(t_stack *a, t_stack *b, int size);
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
+void	push_swap_3(t_stack *a, int size);
+void	push_swap_5(t_stack *a, int size);
 
 #endif

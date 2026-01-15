@@ -12,6 +12,29 @@
 
 #include "push_swap.h"
 
+void	initialize_stacks(t_stack **a, t_stack **b, int *values, int size)
+{
+	*a = init_stack(values, size);
+	*b = NULL;
+}
+
+int	*arr_copy(int *arr, int size)
+{
+	int	i;
+	int	*copy;
+
+	i = 0;
+	copy = malloc(sizeof(int) * size);
+	if (!copy)
+		return (NULL);
+	while (i < size)
+	{
+		copy[i] = arr[i];
+		i++;
+	}
+	return (copy);
+}
+
 //Writes "Error\n" to standard error and terminates the program with exit
 void	error_exit(void)
 {
@@ -42,39 +65,22 @@ int	*parse_args(int argc, char **argv)
 
 int	main(int argc, char **argv)
 {
-	int	*ints_a;
+	int		*ints_a;
+	int		*compresssed_indices;
+	t_stack	*a;
+	t_stack	*b;
 
 	if (argc == 1)
 		return (0);
 	ints_a = parse_args(argc, argv);
-	//push_swap(ints_a, argc - 1);
+	compresssed_indices = compress_indices(ints_a, argc - 1);
+	if (!compresssed_indices)
+	{
+		free(ints_a);
+		error_exit();
+	}
+	initialize_stacks(&a, &b, compresssed_indices, argc - 1);
+	push_swap(a, b, argc - 1);
 	free(ints_a);
 	return (0);
 }
-
-// int	main(int argc, char **argv)
-// {
-// 	int	*ints_a;
-
-// 	if (argc == 1)
-// 		return (0);
-// 	if (!ft_has_int_elements(argc, argv))
-// 	{
-// 		write(2, "Error\n", 6);
-// 		return (1);
-// 	}
-// 	ints_a = ft_convert_int(argc, argv);
-// 	if (!ints_a)
-// 	{
-// 		write(2, "Error\n", 6);
-// 		return (1);
-// 	}
-// 	if (ft_has_duplicates(ints_a, argc - 1))
-// 	{
-// 		write(2, "Error\n", 6);
-// 		return (1);
-// 	}
-// 	//push_swap(ints_a, argc - 1);
-// 	free(ints_a);
-// 	return (0);
-// }
