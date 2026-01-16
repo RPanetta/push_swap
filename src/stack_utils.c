@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 23:31:40 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/16 16:14:52 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,11 @@ int	find_min(t_stack *a)
 {
 	t_node	*curr;
 	int		min;
-	
+
 	if (!a || !a->top)
 		return (0);
 	curr = a->top;
 	min = curr->value;
-	
 	while (curr)
 	{
 		if (curr->value < min)

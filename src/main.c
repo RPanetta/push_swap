@@ -80,8 +80,17 @@ int	main(int argc, char **argv)
 		error_exit();
 	}
 	initialize_stacks(&a, &b, compressed_indices, argc - 1);
-	push_swap(a, b);
-	//push_swap(a, b, argc - 1);
+	sorting_sort(a, b);
 	free(ints_a);
 	return (0);
 }
+
+//#include <stdio.h>
+// void printstack(t_list *a)
+// {
+//  while (a != NULL)
+//  {
+//      printf("%d\n", a->data);
+//      a = a->next;
+//  }
+// }
