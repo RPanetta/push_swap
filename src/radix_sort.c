@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:39:19 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/16 16:13:59 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/16 22:56:21 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	radix_sort(t_stack *a, t_stack *b)
 
 	max_bits = get_max_bits(a->size);
 	bit = 0;
-	while (bit < max_bits)
+	while (bit < max_bits && !is_sorted(a))
 	{
 		size = a->size;
 		i = 0;

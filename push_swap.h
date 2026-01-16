@@ -57,7 +57,7 @@ void	push_to_stack(int value, t_stack **stack);
 int		pop_stack(t_stack *stack);
 t_stack	*init_stack(int *arr, int size);
 t_stack	*init_stack_one_node(int val);
-void	free_stack(t_stack *s);
+void	free_stack(t_stack **s);
 
 //OPERATIONS
 void	sa(t_stack *a);

@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/16 16:14:52 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/16 23:10:59 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ t_stack	*init_stack(int *arr, int size)
 		n = new_node(arr[size]);
 		if (!n)
 		{
-			free_stack(s);
+			free_stack(&s);
 			return (NULL);
 		}
 		n->next = s->top;

@@ -6,23 +6,23 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 14:50:12 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 23:45:57 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/16 20:40:56 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	free_stack(t_stack *s)
+void	free_stack(t_stack **s)
 {
 	t_node	*tmp;
 
-	while (s && s->top)
+	while ((*s) && (*s)->top)
 	{
-		tmp = s->top;
-		s->top = tmp->next;
+		tmp = (*s)->top;
+		(*s)->top = tmp->next;
 		free(tmp);
 	}
-	free(s);
+	free(*s);
 }
 
 t_node	*new_node(int value)
