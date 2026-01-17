@@ -80,7 +80,7 @@ int	main(int argc, char **argv)
 		error_exit();
 	}
 	initialize_stacks(&a, &b, compressed_indices, argc - 1);
-	sorting_sort(a, b);
+	sorting_sort(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	free(compressed_indices);

@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:39:19 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/17 11:13:52 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/17 15:37:54 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,29 @@ int	get_max_bits(int size)
 	return (bits);
 }
 
-void	radix_sort(t_stack *a, t_stack *b)
+void	radix_sort(t_stack **a, t_stack **b)
 {
 	int	max_bits;
 	int	bit;
 	int	size;
 	int	i;
 
-	max_bits = get_max_bits(a->size);
+	max_bits = get_max_bits((*a)->size);
 	bit = 0;
-	while (bit < max_bits && !is_sorted(a))
+	while (bit < max_bits && !is_sorted(*a))
 	{
-		size = a->size;
+		size = (*a)->size;
 		i = 0;
 		while (i < size)
 		{
-			if (has_bit_set(a->top->value, bit) == 0)
-				pb(a, &b);
+			if (has_bit_set((*a)->top->value, bit) == 0)
+				pb(*a, b);
 			else
-				ra(a);
+				ra(*a);
 			i++;
 		}
-		while (b && b->size > 0)
-			pa(&a, b);
+		while (*b && (*b)->size > 0)
+			pa(a, *b);
 		bit++;
 	}
 }
