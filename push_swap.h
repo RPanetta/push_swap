@@ -51,7 +51,6 @@ t_node	*new_node(int value);
 //STACK UTILS
 int		is_sorted(t_stack *a);
 int		find_min(t_stack *a);
-// int		find_max(t_stack *a);
 int		index_of(int value, t_stack *a);
 void	push_to_stack(int value, t_stack **stack);
 int		pop_stack(t_stack *stack);

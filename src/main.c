@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 void	initialize_stacks(t_stack **a, t_stack **b, int *values, int size)
 {
@@ -64,24 +63,6 @@ int	*parse_args(int argc, char **argv)
 	return (ints_a);
 }
 
-// void printstack(t_stack **a)
-// {
-// 	t_node *temp;
-
-// 	printf("\n");
-// 	if( !a || !*a)
-// 	{
-// 		printf("Stack is empty\n");
-// 		return;
-// 	}
-// 	temp = (*a)->top;
-// 	while (temp != NULL)
-// 	{
-// 		printf("%d\n", temp->value);
-// 		temp = temp->next;
-// 	}
-// }
-
 int	main(int argc, char **argv)
 {
 	int		*ints_a;
@@ -100,9 +81,28 @@ int	main(int argc, char **argv)
 	}
 	initialize_stacks(&a, &b, compressed_indices, argc - 1);
 	sorting_sort(a, b);
-	//printstack(&a);
 	free_stack(&a);
 	free_stack(&b);
 	free(compressed_indices);
 	return (0);
 }
+
+// #include <stdio.h>
+// printstack(&a);
+// void printstack(t_stack **a)
+// {
+// 	t_node *temp;
+
+// 	printf("\n");
+// 	if( !a || !*a)
+// 	{
+// 		printf("Stack is empty\n");
+// 		return;
+// 	}
+// 	temp = (*a)->top;
+// 	while (temp != NULL)
+// 	{
+// 		printf("%d\n", temp->value);
+// 		temp = temp->next;
+// 	}
+// }

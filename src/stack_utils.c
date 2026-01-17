@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/16 23:10:59 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:16:02 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,7 @@ int	find_min(t_stack *a)
 	return (min);
 }
 
-// int	find_max(t_stack *a)
-// {
-// 	t_node	*curr;
-// 	int		max;
-
-// 	if (!a || !a->top)
-// 		return (0);
-// 	curr = a->top;
-// 	max = curr->value;
-// 	while (curr)
-// 	{
-// 		if (curr->value > max)
-// 			max = curr->value;
-// 		curr = curr->next;
-// 	}
-// 	return (max);
-// }
-
-//creamos un stack de un solo node
+//Create a stack with a single node
 t_stack	*init_stack_one_node(int val)
 {
 	t_stack	*s;
@@ -110,8 +92,8 @@ t_stack	*init_stack(int *arr, int size)
 	return (s);
 }
 
-//Devuelve la posición (índice) de un valor dentro de la pila.
-//top de la pila: 0, siguiente 1, etc.
+//Returns the position (index) of a value within the stack.
+//Top of the stack: 0, next: 1, etc.
 int	index_of(int value, t_stack *a)
 {
 	t_node	*curr;

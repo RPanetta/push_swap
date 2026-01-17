@@ -6,27 +6,27 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/16 14:39:19 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/16 22:56:21 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:13:52 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//Verifica si el bit en la posición 'bit_position' 
-//del número 'num' es 1 o 0
-//Ejemplo: num = 5 (binario: 101)
-//bit_pos = 0 → retorna 1 (bit menos significativo)
-//bit_pos = 1 → retorna 0
-//bit_pos = 2 → retorna 1 (bit más significativo)
+//Checks whether the bit at position 'bit_position'
+//of the number 'num' is 1 or 0
+//Example: num = 5 (binary: 101)
+//bit_pos = 0 → returns 1 (least significant bit)
+//bit_pos = 1 → returns 0
+//bit_pos = 2 → returns 1 (most significant bit)
 int	has_bit_set(int num, int bit_position)
 {
 	return ((num >> bit_position) & 1);
 }
 
-//Calcula cuántos bits necesitamos para representar
-//el número más grande
-//ejemplo: si size = 100,
-//max_bits = 7 (porque 2^7 = 128 > 100)
+//Calculates how many bits we need to represent
+//the largest number
+//Example: if size = 100,
+//max_bits = 7 (because 2^7 = 128 > 100)
 int	get_max_bits(int size)
 {
 	int	bits;

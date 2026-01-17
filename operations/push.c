@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 12:04:03 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/16 15:05:44 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/17 11:11:02 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	pb(t_stack *a, t_stack **b)
 	write(1, "pb\n", 3);
 }
 
+//Push the top of b to a
 void	pa(t_stack **a, t_stack *b)
 {
 	int	val;
