@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:03:06 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/14 13:01:03 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/18 11:32:32 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ int	is_int(char *str)
 	return (1);
 }
 
-//Some arguments not being integers, some arguments
-//exceeding the integer limits, uses ft_is_int to validate each element.
+//Some arguments may not be integers, some arguments
+//may exceed the integer limits, uses ft_is_int to validate each element.
 int	has_int_elements(int argc, char **argv)
 {
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 12:05:04 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/15 13:06:03 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:09:48 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,29 @@ int	ft_atoi(char *nptr)
 		i++;
 	}
 	return (sign * result);
+}
+
+void	compress(int *arr, int *copy, int *result, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (i < size)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if (arr[i] == copy[j])
+			{
+				result[i] = j;
+				break ;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 void	swap(int *a, int *b)
@@ -65,40 +88,19 @@ void	sort(int *arr, int size)
 	}
 }
 
-void	compress(int *arr, int *copy, int *result, int size)
+int	*arr_copy(int *arr, int size)
 {
 	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (arr[i] == copy[j])
-			{
-				result[i] = j;
-				break ;
-			}
-			j++;
-		}
-		i++;
-	}
-}
-
-int	*compress_indices(int *arr, int size)
-{
-	int	*result;
 	int	*copy;
 
-	result = malloc(sizeof(int) * size);
-	copy = arr_copy(arr, size);
-	if (!copy || !result)
-		return (free(copy), free(result), NULL);
-	sort(copy, size);
-	compress(arr, copy, result, size);
-	free(copy);
-	return (result);
+	i = 0;
+	copy = malloc(sizeof(int) * size);
+	if (!copy)
+		return (NULL);
+	while (i < size)
+	{
+		copy[i] = arr[i];
+		i++;
+	}
+	return (copy);
 }

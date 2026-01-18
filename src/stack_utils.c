@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 13:30:45 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/17 11:16:02 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:25:19 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,27 @@ int	find_min(t_stack *a)
 		curr = curr->next;
 	}
 	return (min);
+}
+
+//Returns the position (index) of a value within the stack.
+//Top of the stack: 0, next: 1, etc.
+int	index_of(int value, t_stack *a)
+{
+	t_node	*curr;
+	int		i;
+
+	if (!a)
+		return (-1);
+	curr = a->top;
+	i = 0;
+	while (curr)
+	{
+		if (curr->value == value)
+			return (i);
+		curr = curr->next;
+		i++;
+	}
+	return (-1);
 }
 
 //Create a stack with a single node
@@ -90,25 +111,4 @@ t_stack	*init_stack(int *arr, int size)
 		s->size++;
 	}
 	return (s);
-}
-
-//Returns the position (index) of a value within the stack.
-//Top of the stack: 0, next: 1, etc.
-int	index_of(int value, t_stack *a)
-{
-	t_node	*curr;
-	int		i;
-
-	if (!a)
-		return (-1);
-	curr = a->top;
-	i = 0;
-	while (curr)
-	{
-		if (curr->value == value)
-			return (i);
-		curr = curr->next;
-		i++;
-	}
-	return (-1);
 }

@@ -6,7 +6,7 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 16:01:49 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/16 15:04:44 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:51:26 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	sort_three(t_stack *a)
 	else if (second < first && second < third && third < first)
 		ra(a);
 }
-//else: it's already sorted, do nothing
 
 void	sort_four(t_stack *a, t_stack *b)
 {

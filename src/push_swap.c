@@ -6,13 +6,13 @@
 /*   By: rpanetta <rpanetta@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/15 12:25:37 by rpanetta          #+#    #+#             */
-/*   Updated: 2026/01/17 15:38:17 by rpanetta         ###   ########.fr       */
+/*   Updated: 2026/01/18 12:43:31 by rpanetta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sorting_sort(t_stack **a, t_stack **b)
+void	push_swap(t_stack **a, t_stack **b)
 {
 	if (!*a || is_sorted(*a))
 		return ;

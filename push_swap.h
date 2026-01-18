@@ -77,7 +77,7 @@ void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 
 //PUSH_SWAP
-void	sorting_sort(t_stack **a, t_stack **b);
+void	push_swap(t_stack **a, t_stack **b);
 void	sort_two(t_stack *a);
 void	sort_three(t_stack *a);
 void	sort_four(t_stack *a, t_stack *b);

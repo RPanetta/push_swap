@@ -18,21 +18,24 @@ void	initialize_stacks(t_stack **a, t_stack **b, int *values, int size)
 	*b = NULL;
 }
 
-int	*arr_copy(int *arr, int size)
+int	*compress_indices(int *arr, int size)
 {
-	int	i;
+	int	*result;
 	int	*copy;
 
-	i = 0;
-	copy = malloc(sizeof(int) * size);
-	if (!copy)
+	result = malloc(sizeof(int) * size);
+	if (!result)
 		return (NULL);
-	while (i < size)
+	copy = arr_copy(arr, size);
+	if (!copy)
 	{
-		copy[i] = arr[i];
-		i++;
+		free(result);
+		return (NULL);
 	}
-	return (copy);
+	sort(copy, size);
+	compress(arr, copy, result, size);
+	free(copy);
+	return (result);
 }
 
 //Writes "Error\n" to standard error and terminates the program with exit
@@ -80,7 +83,7 @@ int	main(int argc, char **argv)
 		error_exit();
 	}
 	initialize_stacks(&a, &b, compressed_indices, argc - 1);
-	sorting_sort(&a, &b);
+	push_swap(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	free(compressed_indices);
